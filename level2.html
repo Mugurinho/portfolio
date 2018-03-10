@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guess game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container"><br><br>
+  <h2>There is another riddle to be guessed</h2>
+  <h3>Riddle the word...again</h3>
+  <h4>Hover the <span class="glyphicon glyphicon-info-sign"></span> for hints, if you must</h4>
+  <strong>You have got: </strong><strong id="show-time">60</strong><strong>&nbsp;seconds to guess the name</strong>
+  <p id = "progress">
+  <hr>
+  <form class="form-horizontal">
+     <img src="img/confused.png" style="width:150; height:100px">
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">It's a lovely...</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Sunshine and coffee"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q1" placeholder="" onblur="Q1()" required><p id = "demoq1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">A shorter version of "Me"</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="One letter word"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q2" placeholder="" onblur="Q2()" required><p id = "demoq2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">Easy way or the ..., your choice</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="A word starting with the same letter"></span> 
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q3" placeholder="" onblur="Q3()" required><p id = "demoq3">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">It's a fruit</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Some of the smart phones love it"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q4" placeholder="" onblur="Q4()" required><p id = "demoq4">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">You can see it when it's cold outside</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="It's slippery and it can melt"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q5" placeholder="" onblur="Q5()" required><p id = "demoq5">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-4 col-sm-4">
+        <button type="submit" class="btn btn-default" id = "btn" onclick="Guess()">Submit</button>
+      </div>
+    </div>
+  </form>
+  <div class="col-sm-offset-4 col-sm-4">
+  <a href="result.html"><button type="submit" class="btn btn-default">Progress</button></a>
+  <a href ="projects.html"><button type="submit" class="btn btn-info">Home</button></a>
+</div>
+</div>
+
+<script>
+function Q1(){
+    var que1;
+    que1 = document.getElementById("q1").value;
+     if(que1 == "morning"){
+      /*document.getElementById("demoq1").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:20%">20% Complete</div></div>';
+    }
+    else document.getElementById("demoq1").innerHTML = "answer might be right";
+   }
+function Q2(){
+    var que2;
+    que2 = document.getElementById("q2").value;
+     if(que2 == "i"){
+      /*document.getElementById("demoq2").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:40%">40% Complete</div></div>';
+    }
+    else document.getElementById("demoq2").innerHTML = "are you sure?";
+   }
+function Q3(){
+    var que3;
+    que3 = document.getElementById("q3").value;
+     if(que3 == "hard"){
+      /*document.getElementById("demoq3").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:60%">60% Complete</div></div>';
+    }
+    else document.getElementById("demoq3").innerHTML = "hmmm...who knows?";
+   }
+function Q4(){
+    var que4;
+    que4 = document.getElementById("q4").value;
+     if(que4 == "apple"){
+      /*document.getElementById("demoq4").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:80%">80% Complete</div></div>';
+    }
+    else document.getElementById("demoq4").innerHTML = "yes, no, maybe?";
+   }
+function Q5(){
+    var que5;
+    que5 = document.getElementById("q5").value;
+     if(que5 == "ice"){
+      /*document.getElementById("demoq5").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">100% Complete</div></div>';
+    }
+    else document.getElementById("demoq5").innerHTML = "Moment of truth :)))";
+   }
+
+
+  function Guess(){
+    var que1 = document.getElementById('q1').value;
+    var que2 = document.getElementById('q2').value;
+    var que3 = document.getElementById('q3').value;
+    var que4 = document.getElementById('q4').value;
+    var que5 = document.getElementById('q5').value;
+
+    if(que1 == "morning" && que2 == "i" && que3 == "hard" && que4 == "apple" && que5 == "ice"){
+       window.open("result2.html");
+    }
+    if(que1 == "" || que2 == "" || que3 == "" || que4 == "" || que5 == ""){
+      alert("Please fill in all the fields");
+    }
+    else
+       window.open("badresult2.html");
+    }
+</script>
+
+<script>
+$(function(){
+    var elem=$('strong[id="show-time"]'),settimmer=0,updateTime,t;
+    t=window.setInterval(function() {
+        updateTime=parseFloat(elem.html(),10)-1;
+        if(updateTime==0) {
+            window.clearInterval(t);
+            elem.html('Time is up!');
+            location.href = "badresult2.html";
+        } else {
+            elem.html(updateTime);
+        }
+    },1000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	#tbusername, #tbemail, #tbpassword{
+		color: white;
+		border-bottom: 1px solid;
+		border-top-style: none;
+		border-left-style: none;
+		border-right-style: none;
+		border-radius: 0px;
+		background-color: transparent;
+}
+body{
+	background-color: black;
+}
+
+label{
+	color: transparent;
+}
+input{
+	color: white;
+}
+h3{
+	color: white;
+}
+#btn{
+	background-color: transparent;
+	color: white;
+	border-radius: 0;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom: 1px solid;
+}
+</style>
+</head>
+
+<body>
+<div class="col-md-6 form-group">
+	  	<h3>Registration form</h3>
+			<div class="form-group">
+	      		<label>Username:</label>
+					<input type="text" id="tbusername" class="form-control" placeholder="Username*">
+					<div id="username_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Email:</label>
+					<input type="email" id="tbemail" name="email" class="form-control" placeholder="Email*" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
+					<div id="email_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Password:</label>
+					<input type="password" id="tbpassword" class="form-control" placeholder="Password*">
+					<div id="password_error" class="val_error"></div>
+			</div>
+			<div>
+				<input type="submit" class="btn btn-default" name="register" id="btn" value="Register" onclick="Validate()">
+				<a href="projects.html"><input type="submit" class="btn btn-default" name="home" id="btn" value="Home"></a>
+			</div>
+			<br><p id="registration"></p>
+	</div>
+
+</body>
+</html>

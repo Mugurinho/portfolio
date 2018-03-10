@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id = "newbody" onload="myFunction()">
+  <title>UoG Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+body{
+  background-image: url("img/portfolio/greenwich.jpg");
+  background-repeat: inherit;
+}
+span.glyphicon{
+    font-size: 1.2em;
+}
+
+#navig{border:1px solid transparent;}
+
+#navig:hover{
+  /*border:1px solid transparent;*/
+  /*background-color: black;*/
+  border-bottom-color: red;
+  -webkit-transition: border-bottom-color 1s ease-out;
+  -moz-transition: border-bottom-color 1s ease-out;
+  -o-transition: border-bottom-color 1s ease-out;
+  transition: border-bottom-color 1s ease-out;
+}
+
+#UoG:hover{
+  color: red;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+#info{
+  background: #000;
+  color: #fff;
+  opacity: 0.4;
+}
+#research{
+  background: #5c4a72;
+  color: #bfbfbf;
+  opacity: 0.8;
+}
+#network{
+  background-color: #f3b05a;
+  opacity: 0.9;
+  color: #000000;
+}
+#jobs{
+  background-color: #f4874b;
+  opacity: 0.9;
+  color: #000000;
+}
+#library{
+  background-color: #7B666D;
+  opacity: 0.9;
+  color: #bfbfbf;
+}
+
+button.accordion {
+    background: transparent;
+    color: #fff;
+    opacity: 0.8;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion:after {
+    content: '\002B';
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    float: right;
+    margin-left: 5px;
+    width: 20px;
+    padding-left: 4px;
+}
+
+button.accordion.active:after {
+    content: "\2212";
+    color: #fff;
+}
+
+div.panel {
+    background: transparent;
+    color: #fff;
+    opacity: 0.8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="uog.html" id = "UoG">UoG Portal</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active" id = "navig"><a href="projects.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-content" id = "navig" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Module info<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Assignments writing/referencing</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-console"></span>&nbsp;&nbsp;Practice</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Common interests</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" id = "navig" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Module research<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;Books</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;Online</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;Live events</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" id = "navig" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Networking<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;Meetings/free events</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Meet key people</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Common interests</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" id = "navig" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-education"></span>&nbsp;&nbsp;Graduation jobs/events<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;CV writing</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Interviews</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Employability events</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" id = "navig" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;Library services<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.gre.ac.uk/it-and-library/staff/library-services/library-catalogue" target="_blank"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Borrow books</a></li>
+             <li><a href="#"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Borrow laptops</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;Events</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-tent"></span>&nbsp;&nbsp;Meeting rooms</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id = "navig"><a href="#"><span class="glyphicon glyphicon-user"></span> Login/Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br/><br/>
+
+<div class="container" id = "info">
+  <h3>Module Info</h3>
+    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).</p>
+      <button class="accordion">Read more...</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+</div>
+
+<div class="container" id = "research">
+  <h3>Module Research</h3>
+    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).</p>
+      <button class="accordion">Read more...</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+</div>
+
+<div class="container" id = "network">
+  <h3>Networking</h3>
+    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).</p>
+      <button class="accordion">Read more...</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+</div>
+
+<div class="container" id = "jobs">
+  <h3>Graduation jobs & events</h3>
+    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).</p>
+      <button class="accordion">Read more...</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+</div>
+
+<div class="container" id = "library">
+  <h3>Library services</h3>
+    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).</p>
+      <button class="accordion">Read more...</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+</div>
+
+</br></br></br></br>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+</script>
+</body>
+</html>

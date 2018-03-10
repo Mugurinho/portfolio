@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guess game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container"><br><br>
+  <h2>There is a riddle to be guessed</h2>
+  <h3>No time to waste</h3>
+  <h4>Hover the <span class="glyphicon glyphicon-info-sign"></span> for hints, if you must</h4>
+  <strong>You have got: </strong><strong id="show-time">120</strong><strong>&nbsp;seconds to riddle</strong>
+  <p id = "progress">
+  <hr>
+  <form class="form-horizontal">
+     <img src="img/thinking.jpg" style="width:100px; height:100px">
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">It's got many days but fewer weeks</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="It is in the Calendar"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q1" placeholder="" onblur="Q1()" required><p id = "demoq1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">It's not above the table, it's ... the table</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Tube synonim"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q2" placeholder="" onblur="Q2()" required><p id = "demoq2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">Britain is...</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Kind of a big; How do you read this sign >?"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q3" placeholder="" onblur="Q3()" required><p id = "demoq3">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">Everyone's DNA is...</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="One of a kind; think fingerprints"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q4" placeholder="" onblur="Q4()" required><p id = "demoq4">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">When someone calls, the phone...</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="The name of a movie"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q5" placeholder="" onblur="Q5()" required><p id = "demoq5">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">14 minus 5 ... 9</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Result"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q6" placeholder="" onblur="Q6()" required><p id = "demoq6">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="text">If you're ... you can win the Lottery</label><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="...strike; ...7"></span>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="q7" placeholder="" onblur="Q7()" required><p id = "demoq7">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-4 col-sm-4">
+        <button type="submit" class="btn btn-default" id = "btn" onclick="Guess()">Submit</button>
+        <a href ="projects.html"><input type="" class="btn btn-info" name="home" value="Home"></a>
+      </div>
+      </div> 
+    </div>
+  </form>
+</div>
+
+<script>
+function Q1(){
+    var que1;
+    que1 = document.getElementById("q1").value;
+     if(que1 == "month"){
+      /*document.getElementById("demoq1").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:15%">15% Complete</div></div>';
+    }
+    /*else document.getElementById("demoq1").innerHTML = "answer is wrong";*/
+   }
+function Q2(){
+    var que2;
+    que2 = document.getElementById("q2").value;
+     if(que2 == "under"){
+      /*document.getElementById("demoq2").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:30%">30% Complete</div></div>';
+    }
+    /*else document.getElementById("demoq2").innerHTML = "answer is wrong";*/
+   }
+function Q3(){
+    var que3;
+    que3 = document.getElementById("q3").value;
+     if(que3 == "great"){
+      /*document.getElementById("demoq3").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:45%">45% Complete</div></div>';
+    }
+   /* else document.getElementById("demoq3").innerHTML = "answer is wrong";*/
+   }
+function Q4(){
+    var que4;
+    que4 = document.getElementById("q4").value;
+     if(que4 == "unique"){
+      /*document.getElementById("demoq4").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:60%">60% Complete</div></div>';
+    }
+    /*else document.getElementById("demoq4").innerHTML = "answer is wrong";*/
+   }
+function Q5(){
+    var que5;
+    que5 = document.getElementById("q5").value;
+     if(que5 == "rings"){
+      /*document.getElementById("demoq5").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:75%">75% Complete</div></div>';
+    }
+    /*else document.getElementById("demoq5").innerHTML = "answer is wrong";*/
+   }
+function Q6(){
+    var que6;
+    que6 = document.getElementById("q6").value;
+     if(que6 == "equals"){
+      /*document.getElementById("demoq6").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:90%">90% Complete</div></div>';
+    }
+    /*else document.getElementById("demoq6").innerHTML = "answer is wrong";*/
+   }
+function Q7(){
+    var que7;
+    que7 = document.getElementById("q7").value;
+     if(que7 == "lucky"){
+      /*document.getElementById("demoq7").innerHTML = "answer is right";*/
+      document.getElementById("progress").innerHTML = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">100% Complete</div></div>';
+    }
+    /*else document.getElementById("demoq7").innerHTML = "answer is wrong";*/
+   }
+
+  function Guess(){
+    var que1 = document.getElementById('q1').value;
+    var que2 = document.getElementById('q2').value;
+    var que3 = document.getElementById('q3').value;
+    var que4 = document.getElementById('q4').value;
+    var que5 = document.getElementById('q5').value;
+    var que6 = document.getElementById('q6').value;
+    var que7 = document.getElementById('q7').value;
+    if(que1 == "month" && que2 == "under" && que3 == "great" && que4 == "unique" && que5 == "rings" && que6 == "equals" && que7 == "lucky"){
+    window.open("result.html");
+    }
+    if(que1 == "" || que2 == "" || que3 == "" || que4 == "" || que5 == "" || que6 == "" || que7 == ""){
+      alert("Please fill in all the fields");
+    }
+    else
+       window.open("badresult.html");
+    }
+</script>
+
+<script>
+$(function(){
+    var elem=$('strong[id="show-time"]'),settimmer=0,updateTime,t;
+    t=window.setInterval(function() {
+        updateTime=parseFloat(elem.html(),10)-1;
+        if(updateTime==0) {
+            window.clearInterval(t);
+            elem.html('Time is up!');
+             location.href = "badresult.html";
+        } else {
+            elem.html(updateTime);
+        }
+    },1000);
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+</body>
+</html>

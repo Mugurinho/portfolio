@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive riddle game</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	.val_error{color: #FF1F1F;}
+	#riddle{
+		background-color: #cdddf7;
+	}
+	#guess{
+		background-color: #cdddf7;
+	}
+	h2{
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+
+<h2>Guess</h2><hr>
+  <div class="col-md-6 form-group">
+  	<div class="alert alert-info alert-dismissable fade in" id="info">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Info!</strong> Write 2 words(riddles) and leave some hints. Words will appear as dots.
+  	</div>
+	  	<h3>Enter words and hints form</h3>
+			<div class="form-group">
+	      		<label>Riddle 1:</label>
+					<input type="password" id="tbrid1" class="form-control" autofocus>
+					<div id="rid_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Riddle 1 hint:</label>
+					<textarea rows="4" id="tbrid1h" class="form-control"></textarea> 
+					<div id="ridh_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Riddle 2:</label>
+					<input type="password" id="tbrid2" class="form-control">
+					<div id="ridd_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Riddle 2 hint:</label>
+					<textarea rows="4" id="tbrid2h" class="form-control"></textarea>
+					<div id="riddh_error" class="val_error"></div>
+			</div>
+			<div>
+				<input type="submit" class="btn btn-success" value="Insert" onclick="Validate()">
+				<input type="checkbox" onclick="myFunction()"/>
+      			<label for="showHide">Show words</label>
+			</div>
+			<br><p id="riddle"></p>
+	</div>
+
+<div class="col-md-6 form-group">
+	<div class="alert alert-info alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Info!</strong> Try and guess the riddles!
+	</div>
+		<h3>Guess form</h3>
+				<div class="form-group">
+		      		<label>Answer 1:</label>
+						<input type="text" id="tbans1" class="form-control">
+						<div id="ans_error" class="value_error"></div><br>
+						<input type="submit" class="btn btn-success" value="Show answer" onclick="Validate();">
+						<p id="answer1"></p>
+				</div>
+				<div class="form-group">
+		      		<label>Answer 2:</label>
+						<input type="text" id="tbans2" class="form-control">
+						<div id="anss_error" class="value_error"></div><br>
+						<input type="submit" class="btn btn-success" value="Show answer" onclick="Validate();">
+						<p id="answer2"></p>
+				</div>
+				<div>
+					<input type="submit" class="btn btn-success" value="Guess" onclick="Validate();">
+					<a href="interactive.html"><input type="submit" class="btn btn-success" value="Play again"></a>
+					<a href="projects.html"><input type="submit" class="btn btn-info" value="Home"></a>
+					&nbsp;<img id="myImg" src="img/portfolio/think.jpg" width="110" height="100">
+				</div>
+			<br><p id="guess"></p>
+</div>
+<span class="clearfix">
+
+<!--<script src="validation.js"></script>-->
+<script>
+function Validate(){
+// coding for inserting stage
+  var rid1 = document.getElementById('tbrid1').value;
+  var rid2 = document.getElementById('tbrid2').value;
+  var rid1h = document.getElementById('tbrid1h').value;
+  var rid2h = document.getElementById('tbrid2h').value;
+
+      if(rid1 == ""){
+        tbrid1.style.border = "1px solid red";
+        rid_error.innerHTML = "Enter a riddle word";
+        tbrid1.focus();
+        return false;
+      }
+
+      else if(rid1h == ""){
+        tbrid1h.style.border = "1px solid red";
+        ridh_error.innerHTML = "Enter a hint";
+        tbrid1h.focus();
+        return false;
+      }
+
+      else if(rid2 == ""){
+        tbrid2.style.border = "1px solid red";
+        ridd_error.innerHTML = "Enter a riddle word";
+        tbrid2.focus();
+        return false;
+      }
+
+      else if(rid2h == ""){
+        tbrid2h.style.border = "1px solid red";
+        riddh_error.innerHTML = "Enter a hint";
+        tbrid2h.focus();
+        return false;
+      }
+
+      else
+      tbrid1.style.border = "1px solid green"; 
+      tbrid2.style.border = "1px solid green"; 
+      tbrid1h.style.border = "1px solid green"; 
+      tbrid2h.style.border = "1px solid green"; 
+      rid_error.innerHTML = "";
+      ridh_error.innerHTML = "";
+      rid_error.innerHTML = "";
+      ridd_error.innerHTML = "";
+      document.getElementById("riddle").innerHTML = "<strong>Your riddle hints are: </strong>" + "<br>Hints to Riddle 1: " + rid1h + "<br>Hints to Riddle 2: " + rid2h;
+
+
+    // coding for guessing stage
+      var ans1 = document.getElementById('tbans1').value;
+      var ans2 = document.getElementById('tbans2').value;
+
+      if(ans1 == ""){
+        tbans1.style.border = "1px solid red";
+        ans_error.innerHTML = "Answer required";
+        tbans1.focus();
+        return false;
+      }
+
+      else if(ans2 == ""){
+        tbans2.style.border = "1px solid red";
+        anss_error.innerHTML = "Second answer required";
+        tbans2.focus();
+        return false;
+      }
+
+      else if(ans1 != rid1){
+        document.getElementById("myImg").src = "img/portfolio/sad.jpg";
+        tbans1.style.border = "1px solid red";
+        ans_error.innerHTML = "Wrong answer, try again";
+        tbans1.focus();
+        return false;
+      }
+
+      else if(ans2 != rid2){
+        document.getElementById("myImg").src = "img/portfolio/sad2.jpg";
+        tbans2.style.border = "1px solid red";
+        anss_error.innerHTML = "Wrong answer, do try again";
+        tbans2.focus();
+        return false;
+      }
+
+      else
+      tbans1.style.border = "1px solid green";
+      tbans2.style.border = "1px solid green";
+      ans_error.innerHTML = "";
+      anss_error.innerHTML = "";
+      document.getElementById("myImg").src = "img/portfolio/happy.jpg";
+      document.getElementById("guess").innerHTML = "<strong>These are the right guessings: </strong>" + "<br>Answer 1: " + ans1 + "<br>Answer 2: " + ans2;
+
+}
+
+
+
+</script>
+</body>
+</html>

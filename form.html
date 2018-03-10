@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form validation in Javascript</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	.val_error{color: #FF1F1F;}
+	#registration{
+		background-color: #cdddf7;
+	}
+	#login{
+		background-color: #cdddf7;
+	}
+	h2{
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+
+<h2>JS Validation form</h2><hr>
+  <div class="col-md-6 form-group">
+  	<div class="alert alert-info alert-dismissable fade in" id="info">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Info!</strong> Please register here first! *Fields are required
+  	</div>
+	  	<h3>Registration form</h3>
+			<div class="form-group">
+	      		<label>Username:</label>
+					<input type="text" id="tbusername" class="form-control" placeholder="Username*" autofocus>
+					<div id="username_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Email:</label>
+					<input type="email" id="tbemail" name="email" class="form-control" placeholder="Email*" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
+					<div id="email_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+	      		<label>Password:</label>
+					<input type="password" id="tbpassword" class="form-control" placeholder="Password*">
+					<div id="password_error" class="val_error"></div>
+			</div>
+			<div>
+				<input type="submit" class="btn btn-success" name="register" value="Register" onclick="Validate()">
+				<a href	="projects.html"><input type="submit" class="btn btn-info" name="home" value="Home"></a>
+			</div>
+			<br><p id="registration"></p>
+	</div>
+
+<div class="col-md-6 form-group">
+	<div class="alert alert-info alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Info!</strong> Please login here after registration completed!
+	</div>
+		<h3>Login form</h3>
+				<div class="form-group">
+		      		<label>Username:</label>
+						<input type="text" id="tbxusername" class="form-control" placeholder="Username*">
+						<div id="user_error" class="value_error"></div>
+				</div>
+				<div class="form-group">
+		      		<label>Password:</label>
+						<input type="password" id="tbxpassword" class="form-control" placeholder="Password*">
+						<div id="pass_error" class="value_error"></div>
+				</div>
+				<div>
+					<input type="submit" class="btn btn-success" name="signin" value="Login" onclick="Validate();"> <!--trying to add onclick="Login()"-->
+				</div>
+			<br><p id="login"></p>
+</div>
+<span class="clearfix">
+<!--<script src="validation.js"></script>
+<script src="login.js"></script>-->
+<script>
+function Validate(){
+// coding for registration stage
+  var username = document.getElementById('tbusername').value;
+  var email = document.getElementById('tbemail').value;
+  var password = document.getElementById('tbpassword').value;
+
+      if(username.length == 0){
+        tbusername.style.border = "1px solid red";
+        username_error.innerHTML = "Username is required";
+        tbusername.focus();
+        return false;
+      }
+
+      else if(email.length == 0){
+        tbemail.style.border = "1px solid red";
+        email_error.innerHTML = "Email is required";
+        tbemail.focus();
+        return false;
+      }
+
+      else if(password.length == 0){
+        tbpassword.style.border = "1px solid red";
+        password_error.innerHTML = "Password is required";
+        tbpassword.focus();
+        return false;
+      }
+
+      else
+      tbusername.style.border = "1px solid green";
+      tbemail.style.border = "1px solid green";
+      tbpassword.style.border = "1px solid green";
+      username_error.innerHTML = "";
+      email_error.innerHTML = "";
+      password_error.innerHTML = "";
+      document.getElementById("registration").innerHTML = "Your registration details are: " + "<br>Username: " + username + "<br>Email: " + email + "<br>Password: " + password;
+
+
+
+    // coding for login stage
+      var user = document.getElementById('tbxusername').value;
+      var pass = document.getElementById('tbxpassword').value;
+
+      if(user == ""){
+        tbxusername.style.border = "1px solid red";
+        user_error.innerHTML = "Username required";
+        tbxusername.focus();
+        return false;
+      }
+
+      else if(pass == ""){
+        tbxpassword.style.border = "1px solid red";
+        pass_error.innerHTML = "Password required";
+        tbxpassword.focus();
+        return false;
+      }
+
+      else if(user != username){
+        tbxusername.style.border = "1px solid red";
+        user_error.innerHTML = "Username does not match";
+        tbxusername.focus();
+        return false;
+      }
+
+      else if(pass != password){
+        tbxpassword.style.border = "1px solid red";
+        pass_error.innerHTML = "Password does not match";
+        tbxpassword.focus();
+        return false;
+      }
+
+      else
+      tbxusername.style.border = "1px solid green";
+      tbxpassword.style.border = "1px solid green";
+      user_error.innerHTML = "";
+      pass_error.innerHTML = "";
+      document.getElementById("login").innerHTML = "Your login details are: " + "<br>Username: " + user + "<br>Password: " + pass;
+}
+</script>
+</body>
+</html>
